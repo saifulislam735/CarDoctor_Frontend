@@ -6,3 +6,21 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# used tech
+- React + vite
+- React router dom
+- tailwind css
+- daisyUi (tailwindcss)
+- firebase 
+- vite ENV
+- package (sweet alert,react-icons,font-inter)
+
+# to use this project
+- npm install
+
+# to run 
+- npm run dev
+
+# to build 
+- npm run build

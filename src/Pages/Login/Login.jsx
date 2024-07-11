@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Login = () => {
     const { login } = useContext(AuthContext)
 
-    //redirecting 
+    //redirecting after login
     let navigate = useNavigate();
     const location = useLocation()
     let from = location.state?.from?.pathname || "/";
