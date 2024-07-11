@@ -1,7 +1,15 @@
 // import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/assets/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 const NavBar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut();
+    };
+
     return (
         <div className="md:px-[150px] py-5 mb-10">
             <div className="navbar bg-base-100">
@@ -34,13 +42,20 @@ const NavBar = () => {
                     </div>
                 </div>
                 <div className="navbar-end space-x-4">
-                    <Link to='/login' className="btn text-blue-500 border border-blue-500 font-semibold">Login</Link>
+                    {user ?
+                        <Link to='/login' onClick={handleLogout} className="btn text-blue-500 border border-blue-500 font-semibold">Log Out</Link>
+                        :
+                        <Link to='/login' className="btn text-blue-500 border border-blue-500 font-semibold">Login</Link>
+                    }
                     <Link to='/signup' className="btn bg-blue-500 text-slate-100">SignUp</Link>
-                    <Link to='/profile' className="avatar">
-                        <div className="ring-primary ring-offset-base-100 w-20 rounded-full ">
-                            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </Link>
+
+                    {user &&
+                        <Link to='/profile' className="avatar">
+                            <div className="ring-primary ring-offset-base-100 w-20 rounded-full ">
+                                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            </div>
+                        </Link>
+                    }
                 </div>
             </div>        </div>
     );

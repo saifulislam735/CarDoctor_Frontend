@@ -4,6 +4,10 @@ import Main from "../layouts/Main";
 import Error from "../Pages/Error/Error";
 import Booking from "../Pages/Home/Booking/Booking";
 import Order from "../Pages/Order/Order";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/SignUp/SignUp";
+import Profile from "../Pages/Profile/Profile";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -22,8 +26,20 @@ const router = createBrowserRouter([
             },
             {
                 path: 'order',
-                element: <Order></Order>,
+                element: <PrivateRoutes><Order></Order></PrivateRoutes>,
                 loader: () => fetch(`http://localhost:5000/order`)
+            },
+            {
+                path: 'login',
+                element: <Login></Login>
+            },
+            {
+                path: 'signup',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: 'profile',
+                element: <Profile></Profile>
             }
 
         ]
